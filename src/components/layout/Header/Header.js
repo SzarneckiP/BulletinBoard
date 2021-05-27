@@ -2,17 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './Header.module.scss';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Link, NavLink } from 'react-router-dom';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>Header</h2>
-    {children}
-  </div>
+import DashboardTwoToneIcon from '@material-ui/icons/DashboardTwoTone';
+
+const Component = ({ className }) => (
+  <header className={clsx(className, styles.root)}>
+    <Grid>
+      <Row between="md" middle="xs">
+        <Col md={3} lg={2}>
+          <Link to='/'>
+            <div className={styles.logo}>
+              <DashboardTwoToneIcon />
+              <span className={styles.name}>Bulletin Board</span>
+            </div>
+          </Link>
+        </Col>
+        <Col>
+          <nav>
+            <NavLink className={styles.nounderline} to='/login' activeClassName='active'>Login</NavLink>
+          </nav>
+        </Col>
+      </Row>
+    </Grid>
+  </header>
 );
 
 Component.propTypes = {

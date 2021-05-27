@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Grid } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
 
 import clsx from 'clsx';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './NotFound.module.scss';
+import Button from '@material-ui/core/Button';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>NotFound</h2>
-    {children}
+const Component = className => (
+  <div className={clsx(className, styles.root,)}>
+    <Grid>
+      <h1 className="text-center">404 Not Found</h1>
+      <Link className={styles.link} to='/'>
+        <Button className={styles.btn} variant="contained" color="primary">
+          Back to Homepage...
+        </Button>
+      </Link>
+    </Grid>
   </div>
 );
 
@@ -19,16 +24,6 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as NotFound,

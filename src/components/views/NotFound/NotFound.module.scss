@@ -1,4 +1,14 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+   font-size: ($base-size * 2);
+}
+
+.btn {
+text-decoration: none;
+background-color: $color-blue;
+}
+
+.link {
+  text-decoration: none;
+}
